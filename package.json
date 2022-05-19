@@ -1,7 +1,9 @@
 {
   "name": "@rafflebox-technologies-inc/rafflebox-logger-ui",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "main": "index.js",
+  "type": "module",
+  "typings": "index.d.ts",
   "repository": "https://github.com/rafflebox-technologies-inc/rafflebox-logger-ui.git",
   "author": "Jamie Archibald <jamie.archibald@rafflebox.ca>",
   "license": "MIT",
@@ -19,7 +21,6 @@
   "dependencies": {
     "@sentry/tracing": "^6.19.7",
     "@sentry/vue": "^6.19.7",
-    "typescript": "^4.6.4",
     "vue": "^2.6.14"
   },
   "devDependencies": {
@@ -29,6 +30,7 @@
     "eslint": "^8.15.0",
     "eslint-config-rafflebox": "^0.2.0",
     "husky": "^8.0.1",
-    "prettier": "^2.6.2"
+    "prettier": "^2.6.2",
+    "typescript": "^4.6.4"
   }
 }

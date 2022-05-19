@@ -19,7 +19,7 @@ If `ENV` is equal to `production` or `test` then Sentry will be enabled. Otherwi
 ```
 import logger from @rafflebox-technologies-inc/rafflebox-logger-ui
 
-const dsn = '@rafflebox-technologies-inc/rafflebox-logger-ui';
+const dsn = 'https://7ca86ef794fe4aa3ad9c1f509bcff8d4@o331232.ingest.sentry.io/6417650';
 initLogger(router, dsn);
 
 logger.info('Hello World');
