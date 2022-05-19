@@ -32,6 +32,9 @@ jobs:
       - name: yarn install
         run: yarn install --prefer-offline --frozen-lockfile --no-progress --non-interactive
 
+      - name: yarn build
+        run: yarn build
+
       - name: Get Outputs
         id: vars
         run: echo "::set-output name=sha_short::$(git rev-parse --short "$GITHUB_SHA")"
