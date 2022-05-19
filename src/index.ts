@@ -1,4 +1,4 @@
-import logger, { Logger } from './logger';
+import logger, { initLogger } from './logger';
 
-export { Logger };
+export { initLogger };
 export default logger;

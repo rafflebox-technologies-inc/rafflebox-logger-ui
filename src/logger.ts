@@ -24,7 +24,7 @@ export const initLogger = (router: any) => {
   });
 };
 
-export class Logger {
+class Logger {
   info = (message: string) => {
     if (!isProd) {
       console.log(message);
