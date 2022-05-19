@@ -5,7 +5,7 @@
     "moduleResolution": "Node",
     "lib": ["ESNext", "ESNext.AsyncIterable", "DOM"],
     "esModuleInterop": true,
-    "allowJs": true,
+    "allowJs": false,
     "sourceMap": true,
     "strict": true,
     "noEmit": true,
@@ -14,12 +14,7 @@
       "*": ["node_modules/*"]
     },
     "types": ["@types/node"],
-    /*
-    "incremental": true,
-    "experimentalDecorators": true,
-    "noImplicitAny": true,
     "outDir": "build",
-    "baseUrl": ".",*/
     "typeRoots": ["src/types", "node_modules/@types"]
   },
   "include": ["src/**/*.ts"],

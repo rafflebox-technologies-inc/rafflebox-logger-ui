@@ -1,12 +1,12 @@
-import Vue from 'vue'
-import * as Sentry from '@sentry/vue'
-import { BrowserTracing } from '@sentry/tracing'
-import { Extras } from '@sentry/types'
-import { VueRouterInstrumentation } from '@sentry/vue/types/router'
+import Vue from 'vue';
+import * as Sentry from '@sentry/vue';
+import { BrowserTracing } from '@sentry/tracing';
+import { Extras } from '@sentry/types';
+import { VueRouterInstrumentation } from '@sentry/vue/types/router';
 
-const isProd = process.env.ENV === 'production'
-const environment = process.env.SENTRY_ENVIRONMENT
-const release = process.env.GIT_COMMIT || 'master'
+const isProd = process.env.ENV === 'production';
+const environment = process.env.SENTRY_ENVIRONMENT;
+const release = process.env.GIT_COMMIT || 'master';
 
 export const initLogger = (router: any) => {
   Sentry.init({
@@ -15,46 +15,41 @@ export const initLogger = (router: any) => {
     integrations: [
       new BrowserTracing({
         routingInstrumentation: Sentry.vueRouterInstrumentation(router),
-        tracingOrigins: [
-          'localhost',
-          'rafflebox.ca',
-          'rafflebox-test.ca',
-          /^\//,
-        ],
-      }),
+        tracingOrigins: ['localhost', 'rafflebox.ca', 'rafflebox-test.ca', /^\//]
+      })
     ],
     release,
     environment,
-    tracesSampleRate: isProd ? 10 : 100,
-  })
-}
+    tracesSampleRate: isProd ? 10 : 100
+  });
+};
 
-class Logger {
+export class Logger {
   info = (message: string) => {
     if (!isProd) {
-      console.log(message)
+      console.log(message);
     }
     Sentry.captureMessage(message, {
-      level: Sentry.Severity.Info,
-    })
-  }
+      level: Sentry.Severity.Info
+    });
+  };
 
   error = (error: Error, extra: Extras) => {
     if (!isProd) {
-      console.error(error, extra)
+      console.error(error, extra);
     }
     Sentry.captureException(error, {
-      extra,
-    })
-  }
+      extra
+    });
+  };
 
   debug = (message: string, data: unknown) => {
     if (!isProd) {
-      console.log(message, data)
+      console.log(message, data);
     }
-  }
+  };
 }
 
-const logger = new Logger()
+const logger = new Logger();
 
-export default logger
+export default logger;
