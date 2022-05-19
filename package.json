@@ -12,7 +12,6 @@
     "clean": "rm -rf node_modules/",
     "build": "tsc",
     "format": "prettier --write \"**/*.{ts,js,json,md,yml}\"",
-    "prepare": "husky install",
     "lint": "eslint"
   },
   "prettier": "@rafflebox-technologies-inc/rafflebox-prettier-config",
