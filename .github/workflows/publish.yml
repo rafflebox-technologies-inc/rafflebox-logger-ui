@@ -29,26 +29,25 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
+      - name: Get Outputs
+        id: vars
+        run: echo "::set-output name=sha_short::$(git rev-parse --short "$GITHUB_SHA")"
+
       - name: yarn install
         run: yarn install --prefer-offline --frozen-lockfile --no-progress --non-interactive
 
       - name: yarn build
         run: yarn build
 
-      - name: Get Outputs
-        id: vars
-        run: echo "::set-output name=sha_short::$(git rev-parse --short "$GITHUB_SHA")"
-
       - name: Publish
         run: |
-          cp package.json build
-          cp .npmrc build
-          cd build
-          npm publish
+          yarn pre-publish
+          export VERSION=$(jq -r '.version' package.json)
+          yarn publish --new-version $VERSION
 
       - name: Slack
         run: |
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"Published `rafflebox-prettier-config` to Github - <https://github.com/rafflebox-technologies-inc/rafflebox-prettier-config/commit/${{ steps.vars.outputs.sha_short }}|${{ steps.vars.outputs.sha_short }}>"}' https://hooks.slack.com/services/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
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Published `rafflebox-logger-ui` to Github - <https://github.com/rafflebox-technologies-inc/rafflebox-logger-ui/commit/${{ steps.vars.outputs.sha_short }}|${{ steps.vars.outputs.sha_short }}>"}' https://hooks.slack.com/services/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
 
       - name: Failed
         if: ${{ failure() }}
