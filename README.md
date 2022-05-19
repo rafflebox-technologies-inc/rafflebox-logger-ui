@@ -4,6 +4,8 @@ Logger for the front end applications written in Vue 2. Uses sentry for exceptio
 
 ## Usage
 
+Add `@rafflebox-technologies-inc:registry=https://npm.pkg.github.com/` to your `.npmrc` file.
+
 You will need to define the following environment variables:
 
 ```
