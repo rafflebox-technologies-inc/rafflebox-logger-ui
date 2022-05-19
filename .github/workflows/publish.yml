@@ -41,7 +41,6 @@ jobs:
 
       - name: Publish
         run: |
-          mkdir build
           cp package.json build
           cp .npmrc build
           cd build
