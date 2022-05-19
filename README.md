@@ -16,6 +16,16 @@ GIT_COMMIT=<git commit of the current branch>
 
 If `ENV` is equal to `production` or `test` then Sentry will be enabled. Otherwise logs will just go to stdout.
 
+```
+import logger from @rafflebox-technologies-inc/rafflebox-logger-ui
+
+const dsn = '@rafflebox-technologies-inc/rafflebox-logger-ui';
+initLogger(router, dsn);
+
+logger.info('Hello World');
+
+```
+
 ## Publish
 
 Publishes the package to github. Note: the pipeline does this.

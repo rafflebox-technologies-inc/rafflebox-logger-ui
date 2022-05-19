@@ -2,16 +2,15 @@ import Vue from 'vue';
 import * as Sentry from '@sentry/vue';
 import { BrowserTracing } from '@sentry/tracing';
 import { Extras } from '@sentry/types';
-import { VueRouterInstrumentation } from '@sentry/vue/types/router';
 
 const isProd = process.env.ENV === 'production';
 const environment = process.env.SENTRY_ENVIRONMENT;
 const release = process.env.GIT_COMMIT || 'master';
 
-export const initLogger = (router: any) => {
+export const initLogger = (router: any, dsn: string) => {
   Sentry.init({
     Vue,
-    dsn: 'https://7ca86ef794fe4aa3ad9c1f509bcff8d4@o331232.ingest.sentry.io/6417650',
+    dsn,
     integrations: [
       new BrowserTracing({
         routingInstrumentation: Sentry.vueRouterInstrumentation(router),
