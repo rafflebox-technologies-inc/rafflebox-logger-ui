@@ -1,6 +1,6 @@
 {
   "name": "@rafflebox-technologies-inc/rafflebox-logger-ui",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "index.js",
   "repository": "https://github.com/rafflebox-technologies-inc/rafflebox-logger-ui.git",
   "author": "Jamie Archibald <jamie.archibald@rafflebox.ca>",
@@ -12,8 +12,7 @@
     "clean": "rm -rf build/",
     "build": "tsc",
     "format": "prettier --write \"**/*.{ts,js,json,md,yml}\"",
-    "lint": "eslint",
-    "publish:github": "yarn publish"
+    "lint": "eslint"
   },
   "prettier": "@rafflebox-technologies-inc/rafflebox-prettier-config",
   "dependencies": {
