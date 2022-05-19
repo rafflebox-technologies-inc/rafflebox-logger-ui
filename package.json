@@ -1,10 +1,13 @@
 {
   "name": "rafflebox-logger-ui",
   "version": "1.0.0",
-  "main": "lib./index.js",
+  "main": "build/index.js",
   "repository": "https://github.com/rafflebox-technologies-inc/rafflebox-logger-ui.git",
   "author": "Jamie Archibald <jamie.archibald@rafflebox.ca>",
   "license": "MIT",
+  "engines": {
+    "node": "$14 || ^16"
+  },
   "scripts": {
     "clean": "rm -rf node_modules/",
     "build": "tsc",

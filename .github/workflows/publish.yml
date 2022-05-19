@@ -41,7 +41,6 @@ jobs:
           mkdir build
           cp package.json build
           cp .npmrc build
-          cp index.json build
           cd build
           npm publish
 
