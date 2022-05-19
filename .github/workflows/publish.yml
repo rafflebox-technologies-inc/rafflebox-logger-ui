@@ -43,7 +43,7 @@ jobs:
         run: |
           yarn pre-publish
           export VERSION=$(jq -r '.version' package.json)
-          yarn publish --new-version $VERSION
+          yarn publish build --new-version $VERSION
 
       - name: Slack
         run: |
