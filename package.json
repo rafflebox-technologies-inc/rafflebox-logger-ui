@@ -1,6 +1,6 @@
 {
   "name": "@rafflebox-technologies-inc/rafflebox-logger-ui",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "main": "index.js",
   "type": "module",
   "typings": "index.d.ts",
@@ -8,7 +8,7 @@
   "author": "Jamie Archibald <jamie.archibald@rafflebox.ca>",
   "license": "MIT",
   "engines": {
-    "node": "$14 || ^16"
+    "node": "^14 || ^16"
   },
   "scripts": {
     "clean": "rm -rf build/",
