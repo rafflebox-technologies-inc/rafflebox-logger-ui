@@ -42,7 +42,7 @@ class Logger {
     });
   };
 
-  error = (error: Error, extra: Extras) => {
+  error = (error: any, extra: Extras) => {
     if (!isProd) {
       console.error(error, extra);
     }
@@ -51,7 +51,7 @@ class Logger {
     });
   };
 
-  debug = (message: string, data: unknown) => {
+  debug = (message: any, data: unknown) => {
     if (!isProd) {
       console.log(message, data);
     }
