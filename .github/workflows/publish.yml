@@ -36,14 +36,20 @@ jobs:
       - name: yarn install
         run: yarn install --prefer-offline --frozen-lockfile --no-progress --non-interactive
 
+      - name: yarn lint
+        run: yarn lint
+
       - name: yarn build
         run: yarn build
 
       - name: Publish
         run: |
-          yarn pre-publish
-          export VERSION=$(jq -r '.version' package.json)
-          yarn publish build --new-version $VERSION
+          cp package.json build
+          cp README.md build
+          cp .npmrc build
+          cd build
+          npm version --no-git-tag-version prerelease
+          npm publish --access public
 
       - name: Slack
         run: |
