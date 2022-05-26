@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2020",
-    "module": "esnext",
+    "module": "commonjs",
     "moduleResolution": "Node",
     "lib": ["ESNext", "ESNext.AsyncIterable", "DOM"],
     "esModuleInterop": true,
@@ -10,6 +10,7 @@
     "strict": true,
     "noEmit": false,
     "baseUrl": ".",
+    "declaration": true,
     "paths": {
       "*": ["node_modules/*"]
     },

@@ -2,13 +2,12 @@
   "name": "@rafflebox-technologies-inc/rafflebox-logger-ui",
   "version": "1.1.0",
   "main": "index.js",
-  "type": "module",
   "typings": "index.d.ts",
   "repository": "https://github.com/rafflebox-technologies-inc/rafflebox-logger-ui.git",
   "author": "Jamie Archibald <jamie.archibald@rafflebox.ca>",
   "license": "MIT",
   "engines": {
-    "node": "$14 || ^16"
+    "node": "^14 || ^16"
   },
   "scripts": {
     "clean": "rm -rf build/",
