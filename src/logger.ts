@@ -3,11 +3,20 @@ import * as Sentry from '@sentry/vue';
 import { BrowserTracing } from '@sentry/tracing';
 import { Extras } from '@sentry/types';
 
-const isProd = process.env.ENV === 'production';
-const environment = process.env.SENTRY_ENVIRONMENT;
-const release = process.env.GIT_COMMIT || 'master';
+export interface LoggerConfig {
+  environment: 'production' | 'test' | 'development';
+  release: string;
+  dsn: string;
+  tracesSampleRate: number;
+}
 
-export const initLogger = (router: any, dsn: string) => {
+let isProd = false;
+
+export const initLogger = (router: any, config: LoggerConfig) => {
+  const { dsn, environment, release, tracesSampleRate } = config;
+
+  isProd = config.environment === 'production';
+
   Sentry.init({
     Vue,
     dsn,
@@ -19,7 +28,7 @@ export const initLogger = (router: any, dsn: string) => {
     ],
     release,
     environment,
-    tracesSampleRate: isProd ? 10 : 100
+    tracesSampleRate
   });
 };
 
