@@ -29,3 +29,9 @@ jobs:
 
       - name: yarn install
         run: yarn install --prefer-offline --frozen-lockfile --no-progress --non-interactive
+
+      - name: yarn lint
+        run: yarn lint
+
+      - name: yarn build
+        run: yarn build
