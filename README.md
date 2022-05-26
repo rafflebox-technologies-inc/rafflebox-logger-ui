@@ -11,9 +11,9 @@ You will need to define the following environment variables:
 ```
 import logger from @rafflebox-technologies-inc/rafflebox-logger-ui
 
-const dsn = 'https://7ca86ef794fe4aa3ad9c1f509bcff8d4@o331232.ingest.sentry.io/6417650';
+const dsn = '<dns from sentry>';
 
-initLogger(router, { dsn, environment: 'production', release: 'git-commit', );
+initLogger(router, { dsn, environment: 'production', release: 'git-commit', tracesSampleRate: 100 });
 
 logger.info('Hello World');
 ```
