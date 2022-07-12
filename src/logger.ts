@@ -33,12 +33,13 @@ export const initLogger = (router: any, config: LoggerConfig) => {
 };
 
 class Logger {
-  info = (message: string) => {
+  info = (message: string, extra: Extras) => {
     if (!isProd) {
       console.log(message);
     }
     Sentry.captureMessage(message, {
-      level: Sentry.Severity.Info
+      level: Sentry.Severity.Info,
+      extra
     });
   };
 
