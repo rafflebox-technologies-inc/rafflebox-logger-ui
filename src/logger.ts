@@ -57,6 +57,10 @@ class Logger {
       console.log(message, data);
     }
   };
+
+  trace = (message: string, data: { [key: string]: any }, level?: Sentry.Severity) => {
+    Sentry.addBreadcrumb({ message, data, level });
+  };
 }
 
 const logger = new Logger();
